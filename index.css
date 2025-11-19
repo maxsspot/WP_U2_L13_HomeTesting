@@ -1,12 +1,22 @@
 body {
-    
+    text-align:center;
+    background-color:orangered;
+    color:white;
+    font-family:"Inter", sans-serif;
+    transition:all 0.25s;
+}
+
+a {
+    text-decoration:none;
+}
+a:hover {
+    text-decoration:underline;
 }
 
 .div1 {
-  display:flex;
-  flex-direction:row;
-  justify-content:center;
-  margin:5px;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
 }
 
 .inside_div {
@@ -14,4 +24,21 @@ body {
     width:100px;
     height:100px;
     margin:5px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+#title, #instructions {
+    margin:auto;
+}
+
+#title {
+    border-bottom:white solid 1px;
+    width:fit-content;
+}
+
+#instructions {
+    width:500px;
+    margin-top:20px;
+    margin-bottom:20px;
 }
