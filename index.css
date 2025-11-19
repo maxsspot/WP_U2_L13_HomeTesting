@@ -1,3 +1,8 @@
 body {
     background-color:red;
 }
+
+.inside_div:active{
+  background-size: cover;
+  background-image: url("/resources/capybara.png");
+}
