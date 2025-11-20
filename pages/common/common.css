@@ -1,6 +1,10 @@
 body {
     text-align:center;
-    background-color:orangered;
-    color:white;
+    background-color:white;
     font-family:"Inter", sans-serif;
+}
+
+img {
+    width:100px;
+    height:100px;
 }
