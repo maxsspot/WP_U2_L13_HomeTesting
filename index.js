@@ -10,7 +10,8 @@ const card = ["resources/bear.png", "resources/football.png", "resources/bear.pn
 
 function user_clicks(){
     const pic = document.getElementsByClassName("inside_div")
-    const picClicked = pic[0].id.replace("row","")
+    pic.onclick = 
     console.log(picClicked)
-    pic[0].style.background = `url(${card[0]})`
+    pic.style.background = `url(${card[0]})`
+    
 }
