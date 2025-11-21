@@ -24,5 +24,5 @@ function user_clicks(){
 }
 
 function assignImages(pic, rIndex) {
-    
+    cards = getRandomElement(card)
 }
