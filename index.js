@@ -8,6 +8,7 @@ const card = ["resources/bear.png", "resources/football.png", "resources/leafs.p
     "resources/wind.png",
 ]
 let usedIndex = [];
+let imageSrcs = ["","","","","","","","","","","","","","","","","","","",""]
 const pic = document.getElementsByClassName("inside_div")
 
 
@@ -15,7 +16,10 @@ const pic = document.getElementsByClassName("inside_div")
 function user_clicks(){
     while(currentPic!=20) {
         pic[currentPic].onclick = function() {
+            let cell = Number(this.id.replace("row",""))-1;
+            console.log(cell)
             idk++
+
             // Chooses a random index
             let rIndex = Math.floor(Math.random() * 10) + 0;
             
@@ -31,8 +35,15 @@ function user_clicks(){
             // Adds the index used to a list of used indexes
             usedIndex.push(rIndex)
             
-            // Changing from black background to image when clicked
-            this.style.background=`url(${card[rIndex]}) no-repeat center`
+            /* Changing from black background to image when clicked
+               Background is dependent on if one has already been assigned or not
+            */
+            if(imageSrcs[cell] == "") {
+                this.style.background=`url(${card[rIndex]}) no-repeat center`
+                imageSrcs[cell] = card[rIndex];
+            } else {
+                this.style.background=`url(${imageSrcs[cell]}) no-repeat center`
+            }
             this.style.backgroundSize="cover";
 
             // Resetting the cards after two cards are selected
