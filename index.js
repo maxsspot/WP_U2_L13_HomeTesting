@@ -1,7 +1,7 @@
 let gameOver = false;
 let turn = 1;
 let currentPic = 0;
-let idk = 0;
+let cardsClicked = 0;
 const card = ["resources/bear.png", "resources/football.png", "resources/leafs.png",
      "resources/mouse.png", "resources/pie.png", "resources/pumpkin.png",
       "resources/scarecrow.png", "resources/soccer.png", "resources/turkey.png",
@@ -20,7 +20,7 @@ function user_clicks(){
         pic[currentPic].onclick = function() {
             let cell = Number(this.id.replace("row",""))-1;
             console.log(cell)
-            idk++
+            cardsClicked++
 
             // Chooses a random index
             let rIndex = Math.floor(Math.random() * 10) + 0;
@@ -49,12 +49,12 @@ function user_clicks(){
             this.style.backgroundSize="cover";
 
             // Resetting the cards after two cards are selected
-            if(idk==3) {
+            if(cardsClicked==3) {
                 for(let i=0;i<pic.length;i++) {
                     pic[i].style.backgroundImage="none";
                     pic[i].style.backgroundColor="black";
                 }
-                idk=0
+                cardsClicked=0
             }
         }
         currentPic++
