@@ -20,7 +20,7 @@ function user_clicks(){
             let cell = Number(this.id.replace("row",""))-1;
 
             cardsClicked++
-            console.log(cardsClicked)
+            //console.log(cardsClicked)
 
             // Chooses a random index
             let rIndex = Math.floor(Math.random() * 10) + 0;
@@ -48,6 +48,8 @@ function user_clicks(){
             } else {
                 twoSelected.push(cellId)
             }
+
+            console.log(twoSelected);
             
             /* Changing from black background to image when clicked
                Background is dependent on if one has already been assigned or not
@@ -61,7 +63,7 @@ function user_clicks(){
             this.style.backgroundSize="cover";
 
             // Resetting the cards after two cards are selected
-            if(cardsClicked==3) {
+            if(cardsClicked==2) {
                 let selection1id = document.getElementById(twoSelected[0]);
                 let selection2id = document.getElementById(twoSelected[1]);
                 /*console.log(twoSelected)
@@ -72,6 +74,7 @@ function user_clicks(){
                 selection2id.style.backgroundImage="none";
                 selection2id.style.backgroundColor="black";
                 twoSelected=[]
+                twoSelected.push(cellId)
                 cardsClicked=0
             }
         }
