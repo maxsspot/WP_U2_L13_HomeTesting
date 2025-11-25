@@ -12,15 +12,15 @@ let twoSelected = [];
 let imageSrcs = ["","","","","","","","","","","","","","","","","","","",""];
 const pic = document.getElementsByClassName("inside_div");
 
-
-
-
 function user_clicks(){
     while(currentPic!=20) {
         pic[currentPic].onclick = function() {
+            // Gets cell id and cell index
+            let cellId = this.id;
             let cell = Number(this.id.replace("row",""))-1;
-            console.log(cell)
+
             cardsClicked++
+            console.log(cardsClicked)
 
             // Chooses a random index
             let rIndex = Math.floor(Math.random() * 10) + 0;
@@ -34,8 +34,20 @@ function user_clicks(){
                 usedIndex=[]
             }
            
+
             // Adds the index used to a list of used indexes
             usedIndex.push(rIndex)
+
+            // Adds the selected cell id to a list of both selected
+            if(twoSelected.length==2) {
+                let selection1 = document.getElementById(twoSelected[0]).style.backgroundImage;
+                let selection2 = document.getElementById(twoSelected[1]).style.backgroundImage;
+                if(selection1 == selection2) {
+                    console.log("its a match!")
+                }
+            } else {
+                twoSelected.push(cellId)
+            }
             
             /* Changing from black background to image when clicked
                Background is dependent on if one has already been assigned or not
@@ -50,10 +62,16 @@ function user_clicks(){
 
             // Resetting the cards after two cards are selected
             if(cardsClicked==3) {
-                for(let i=0;i<pic.length;i++) {
-                    pic[i].style.backgroundImage="none";
-                    pic[i].style.backgroundColor="black";
-                }
+                let selection1id = document.getElementById(twoSelected[0]);
+                let selection2id = document.getElementById(twoSelected[1]);
+                /*console.log(twoSelected)
+                console.log(selection1id)
+                console.log(selection2id)*/
+                selection1id.style.backgroundImage="none";
+                selection1id.style.backgroundColor="black";
+                selection2id.style.backgroundImage="none";
+                selection2id.style.backgroundColor="black";
+                twoSelected=[]
                 cardsClicked=0
             }
         }
