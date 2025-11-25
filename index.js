@@ -1,5 +1,5 @@
 let gameOver = false;
-let turn = 1;
+let turn = 0;
 let currentPic = 0;
 let cardsClicked = 0;
 const card = ["resources/bear.png", "resources/football.png", "resources/leafs.png",
@@ -11,6 +11,9 @@ let usedIndex = [];
 let twoSelected = [];
 let imageSrcs = ["","","","","","","","","","","","","","","","","","","",""];
 const pic = document.getElementsByClassName("inside_div");
+let hasMatched;
+let p1score=0;
+let p2score=0;
 
 function user_clicks(){
     while(currentPic!=20) {
@@ -20,7 +23,6 @@ function user_clicks(){
             let cell = Number(this.id.replace("row",""))-1;
 
             cardsClicked++
-            //console.log(cardsClicked)
 
             // Chooses a random index
             let rIndex = Math.floor(Math.random() * 10) + 0;
@@ -33,23 +35,23 @@ function user_clicks(){
             } else {
                 usedIndex=[]
             }
-           
 
             // Adds the index used to a list of used indexes
             usedIndex.push(rIndex)
 
             // Adds the selected cell id to a list of both selected
+            let selection1;
+            let selection2;
             if(twoSelected.length==2) {
-                let selection1 = document.getElementById(twoSelected[0]).style.backgroundImage;
-                let selection2 = document.getElementById(twoSelected[1]).style.backgroundImage;
+                selection1 = document.getElementById(twoSelected[0]).style.backgroundImage;
+                selection2 = document.getElementById(twoSelected[1]).style.backgroundImage;
                 if(selection1 == selection2) {
-                    console.log("its a match!")
+                    hasMatched=true
+                    if(turn=0)
                 }
             } else {
                 twoSelected.push(cellId)
             }
-
-            console.log(twoSelected);
             
             /* Changing from black background to image when clicked
                Background is dependent on if one has already been assigned or not
@@ -66,13 +68,14 @@ function user_clicks(){
             if(cardsClicked==2) {
                 let selection1id = document.getElementById(twoSelected[0]);
                 let selection2id = document.getElementById(twoSelected[1]);
-                /*console.log(twoSelected)
-                console.log(selection1id)
-                console.log(selection2id)*/
-                selection1id.style.backgroundImage="none";
-                selection1id.style.backgroundColor="black";
-                selection2id.style.backgroundImage="none";
-                selection2id.style.backgroundColor="black";
+                if (!hasMatched) {
+                    selection1id.style.backgroundImage="none";
+                    selection1id.style.backgroundColor="black";
+                    selection2id.style.backgroundImage="none";
+                    selection2id.style.backgroundColor="black";
+                } else {
+                    hasMatched=false
+                }
                 twoSelected=[]
                 twoSelected.push(cellId)
                 cardsClicked=0
