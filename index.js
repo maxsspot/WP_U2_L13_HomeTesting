@@ -12,8 +12,8 @@ let twoSelected = [];
 let imageSrcs = ["","","","","","","","","","","","","","","","","","","",""];
 const pic = document.getElementsByClassName("inside_div");
 let hasMatched;
-let p1score=1;
-let p2score=1;
+let p1score=0;
+let p2score=0;
 let p1ScoreShown=document.getElementById("p1score");
 let p2ScoreShown=document.getElementById("p2score");
 
@@ -52,7 +52,7 @@ function user_clicks(){
                     if(turn==0) {
                          p1ScoreShown.textContent = p1score++;
                     } else {
-                         p2ScoreShown.textContent = p1score++;
+                         p2ScoreShown.textContent = p2score++;
                     }
                 }
             } else {
