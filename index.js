@@ -10,7 +10,6 @@ let twoSelected = [];
 let imageSrcs = ["","","","","","","","","","","","","","","","","","","",""];
 const pic = document.getElementsByClassName("inside_div");
 let hasMatched;
-
 let p1ScoreShown=document.getElementById("p1score");
 let p2ScoreShown=document.getElementById("p2score");
 
@@ -90,10 +89,6 @@ function user_clicks(){
                 twoSelected=[]
                 twoSelected.push(cellId)
                 cardsClicked=0
-            }
-
-            if(matchesMade==10) {
-                 console.log("WON!");
             }
         }
         currentPic++
