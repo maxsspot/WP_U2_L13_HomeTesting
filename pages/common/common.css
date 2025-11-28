@@ -1,10 +1,22 @@
 body {
     text-align:center;
-    background-color:white;
+    background-color:orangered;
+    color:white;
     font-family:"Inter", sans-serif;
 }
 
 img {
     width:100px;
     height:100px;
+}
+
+a {
+    text-decoration:none;
+    color:violet;
+}
+a:hover {
+    text-decoration:underline;
+}
+a:visited {
+    color:violet;
 }
