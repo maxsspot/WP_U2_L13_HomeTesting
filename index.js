@@ -1,5 +1,5 @@
 let gameOver = false;
-let turn = 0;let currentPic = 0;let cardsClicked = 0;let p1score=0;let p2score=0;
+let turn = 0;let currentPic = 0;let cardsClicked = 0;let p1score=0;let p2score=0;let matchesMade=0;
 const card = ["resources/bear.png", "resources/football.png", "resources/leafs.png",
      "resources/mouse.png", "resources/pie.png", "resources/pumpkin.png",
       "resources/scarecrow.png", "resources/soccer.png", "resources/turkey.png",
@@ -47,6 +47,7 @@ function user_clicks(){
                 selection2 = document.getElementById(twoSelected[1]).style.backgroundImage;
                 if(selection1 == selection2) {
                     hasMatched=true
+                    matchesMade++;
                     if(turn==0) {
                          p1ScoreShown.textContent = p1score++;
                     } else {
@@ -58,7 +59,6 @@ function user_clicks(){
                     } else {
                          turn--;
                     }
-                     console.log(turn);
                 }
             } else {
                 twoSelected.push(cellId)
@@ -91,13 +91,11 @@ function user_clicks(){
                 twoSelected.push(cellId)
                 cardsClicked=0
             }
+
+            if(matchesMade==10) {
+                 console.log("WON!");
+            }
         }
         currentPic++
     }
-    //pic.style.background = `url(${card[0]})`
-    
 }
-
-/*function assignImages(pic, rIndex) {
-    cards = getRandomElement(card)
-}*/
