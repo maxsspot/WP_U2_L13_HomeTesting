@@ -1,7 +1,5 @@
 let gameOver = false;
-let turn = 0;
-let currentPic = 0;
-let cardsClicked = 0;
+let turn = 0;let currentPic = 0;let cardsClicked = 0;let p1score=0;let p2score=0;
 const card = ["resources/bear.png", "resources/football.png", "resources/leafs.png",
      "resources/mouse.png", "resources/pie.png", "resources/pumpkin.png",
       "resources/scarecrow.png", "resources/soccer.png", "resources/turkey.png",
@@ -12,7 +10,7 @@ let twoSelected = [];
 let imageSrcs = ["","","","","","","","","","","","","","","","","","","",""];
 const pic = document.getElementsByClassName("inside_div");
 let hasMatched;
-let p1score=0;let p2score=0;
+
 let p1ScoreShown=document.getElementById("p1score");
 let p2ScoreShown=document.getElementById("p2score");
 
