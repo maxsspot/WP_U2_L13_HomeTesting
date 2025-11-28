@@ -72,6 +72,12 @@ function user_clicks(){
                          p2ScoreShown.textContent = p2score++;
                          sessionStorage.setItem("p2score",p2ScoreShown.textContent)
                     }
+                } else {
+                    if(turn==0) {
+                         turn++;
+                    } else {
+                         turn--;
+                    }
                 }
             } else {
                 twoSelected.push(cellId)
