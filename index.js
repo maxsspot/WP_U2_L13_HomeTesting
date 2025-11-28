@@ -17,22 +17,6 @@ let p2score;
 let p1ScoreShown=document.getElementById("p1score");
 let p2ScoreShown=document.getElementById("p2score");
 
-function loadSavedScores() {
-     if(sessionStorage.getItem("p1score")) {
-          p1ScoreShown.textContent = sessionStorage.getItem("p1score");
-          p1score=Number(sessionStorage.getItem("p1score"));
-     } else {
-          p1score=0;
-     }
-     
-     if(sessionStorage.getItem("p2score")) {
-          p2ScoreShown.textContent = sessionStorage.getItem("p2score");
-          p2score=Number(sessionStorage.getItem("p2score"));
-     } else {
-          p2score=0;
-     }
-}
-
 function user_clicks(){
     while(currentPic!=20) {
         pic[currentPic].onclick = function() {
@@ -67,10 +51,8 @@ function user_clicks(){
                     hasMatched=true
                     if(turn==0) {
                          p1ScoreShown.textContent = p1score++;
-                         sessionStorage.setItem("p1score",p1ScoreShown.textContent)
                     } else {
                          p2ScoreShown.textContent = p2score++;
-                         sessionStorage.setItem("p2score",p2ScoreShown.textContent)
                     }
                 } else {
                     if(turn==0) {
