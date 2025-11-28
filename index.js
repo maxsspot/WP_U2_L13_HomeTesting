@@ -51,8 +51,10 @@ function user_clicks(){
                     hasMatched=true
                     if(turn==0) {
                          p1ScoreShown.textContent = p1score++;
+                         sessionStorage.setItem("p1score",p1ScoreShown.textContent)
                     } else {
                          p2ScoreShown.textContent = p2score++;
+                         sessionStorage.setItem("p2score",p2ScoreShown.textContent)
                     }
                 }
             } else {
@@ -62,17 +64,13 @@ function user_clicks(){
             /* Changing from black background to image when clicked
                Background is dependent on if one has already been assigned or not
             */
-            if(!this.style.background) {
-                 if(imageSrcs[cell] == "") {
-                     this.style.background=`url(${card[rIndex]}) no-repeat center`
-                     imageSrcs[cell] = card[rIndex];
-                 } else {
-                     this.style.background=`url(${imageSrcs[cell]}) no-repeat center`
-                 }
-                 this.style.backgroundSize="cover";
+            if(imageSrcs[cell] == "") {
+                this.style.background=`url(${card[rIndex]}) no-repeat center`
+                imageSrcs[cell] = card[rIndex];
             } else {
-                 console.log("already clicked!");
+                this.style.background=`url(${imageSrcs[cell]}) no-repeat center`
             }
+            this.style.backgroundSize="cover";
 
             // Resetting the cards after two cards are selected
             if(cardsClicked==2) {
