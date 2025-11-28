@@ -70,6 +70,8 @@ function user_clicks(){
                      this.style.background=`url(${imageSrcs[cell]}) no-repeat center`
                  }
                  this.style.backgroundSize="cover";
+            } else {
+                 console.log("already clicked!");
             }
 
             // Resetting the cards after two cards are selected
