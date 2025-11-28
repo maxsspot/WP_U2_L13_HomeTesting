@@ -62,13 +62,15 @@ function user_clicks(){
             /* Changing from black background to image when clicked
                Background is dependent on if one has already been assigned or not
             */
-            if(imageSrcs[cell] == "") {
-                this.style.background=`url(${card[rIndex]}) no-repeat center`
-                imageSrcs[cell] = card[rIndex];
-            } else {
-                this.style.background=`url(${imageSrcs[cell]}) no-repeat center`
+            if(!this.style.background) {
+                 if(imageSrcs[cell] == "") {
+                     this.style.background=`url(${card[rIndex]}) no-repeat center`
+                     imageSrcs[cell] = card[rIndex];
+                 } else {
+                     this.style.background=`url(${imageSrcs[cell]}) no-repeat center`
+                 }
+                 this.style.backgroundSize="cover";
             }
-            this.style.backgroundSize="cover";
 
             // Resetting the cards after two cards are selected
             if(cardsClicked==2) {
