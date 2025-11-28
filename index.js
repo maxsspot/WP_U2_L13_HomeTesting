@@ -39,7 +39,6 @@ function user_clicks(){
             usedIndex.push(rIndex)
 
             // Adds the selected cell id to a list of both selected
-            twoSelected.push(cellId)
             let selection1;
             let selection2;
             if(twoSelected.length==2) {
@@ -60,6 +59,8 @@ function user_clicks(){
                          turn--;
                     }
                 }
+            } else {
+                 twoSelected.push(cellId)
             }
             
             /* Changing from black background to image when clicked
