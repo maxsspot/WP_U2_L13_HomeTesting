@@ -48,9 +48,9 @@ function user_clicks(){
                     hasMatched=true
                     matchesMade++;
                     if(turn==0) {
-                         p1ScoreShown.textContent = p1score++;
+                         p1ScoreShown.textContent = ++p1score;
                     } else {
-                         p2ScoreShown.textContent = p2score++;
+                         p2ScoreShown.textContent = ++p2score;
                     }
                 } else {
                     if(turn==0) {
