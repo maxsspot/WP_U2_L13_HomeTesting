@@ -31,7 +31,6 @@ function user_clicks(){
                 while(usedIndex.includes(rIndex)) {
                     rIndex = Math.floor(Math.random() * 10) + 0;
                 }
-                console.log(usedIndex);
             } else {
                 usedIndex=[]
             }
