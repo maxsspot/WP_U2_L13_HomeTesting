@@ -60,6 +60,7 @@ function user_clicks(){
                     } else {
                          turn--;
                     }
+                     console.log(turn);
                 }
             } else {
                 twoSelected.push(cellId)
